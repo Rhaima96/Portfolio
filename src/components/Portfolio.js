@@ -109,8 +109,8 @@ const Portfolio = () => {
                                         <span>3 Days</span>
                                     </h4>
                                 </div>
-                                <div className="price"></div>
-                                <button className="btn btn-outline-primary btn-block" type="button">Portfolio Link</button>
+                                <div className="price"></div> 
+                                <a href="https://festive-banach-6992ed.netlify.app/portfolio" target="_blank" className="btn btn-outline-primary btn-block" type="button">Portfolio Link</a>
                             </div>
                         </div>
                     </div>

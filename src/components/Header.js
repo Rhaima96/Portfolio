@@ -32,7 +32,7 @@ const Header = () => {
                         <h1 className="cd-headline clip  ">
                             <span className="blc an_h">I'm |
                             </span>
-                            <span className="cd-words-wrapper ">
+                            <span className="cd-words-wrapper an_h">
                                 <b className="is-visible">Developer.</b>
                                 <b >Designer.</b>
 
