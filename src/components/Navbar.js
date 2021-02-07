@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from "../logo.png";
 import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {Link} from 'react-router-dom';
 import avatar from './avatar.jpg'
 import {makeStyles} from '@material-ui/core/styles';
 import {
@@ -19,7 +20,6 @@ import {
 import {
     Home,
     AssignmentInd,
-    ArrowBack,
     Apps,
     ContactMail,
     Reorder
@@ -35,12 +35,14 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
         width: "7rem",
         height: "7rem",
-        margin: "0.5rem auto"
+        margin: "0.5rem auto",
+        boxShadow: "0 5px 10px 0 rgba(0 , 0 , 0 , 0.15)"
+
     },
     menuContainer: {
         width: "280px",
         height: "100%",
-        backgroundColor: "#5e17eb"
+        backgroundImage: "linear-gradient(#004aad, #38b6ff)"
     },
     divider: {
         background: theme.palette.divider = "#d0d0d0"
@@ -56,16 +58,20 @@ const useStyles = makeStyles((theme) => ({
 const menuItems = [
     {
         ListIcon: <Home/>,
-        ListText: "Home"
+        ListText: "Home",
+        listPath: "/"
     }, {
         ListIcon: <AssignmentInd/>,
-        ListText: "Resume"
+        ListText: "Resume",
+        listPath: "/resume"
     }, {
         ListIcon: <Apps/>,
-        ListText: "Portfolio"
+        ListText: "Portfolio",
+        listPath: "/portfolio"
     }, {
         ListIcon: <ContactMail/>,
-        ListText: "Contact"
+        ListText: "Contact",
+        listPath: "/contact"
     }
 ]
 
@@ -91,7 +97,12 @@ const Navbar = () => {
             <List >
                 {menuItems.map((item, key) => (
 
-                    <ListItem onClick={toggleSlider(slider, false)} button key={key}>
+                    <ListItem
+                        component={Link}
+                        to={item.listPath}
+                        onClick={toggleSlider(slider, false)}
+                        button
+                        key={key}>
                         <ListItemIcon className={classes.lsicon}>
                             {item.ListIcon}
                         </ListItemIcon>
@@ -106,7 +117,7 @@ const Navbar = () => {
     return (
         <div>
             <Box component="nav">
-                <AppBar position="static">
+                <AppBar position="sticky"   backgroundImage="linear-gradient(#004aad, #38b6ff)">
                     <Toolbar>
                         <IconButton onClick={toggleSlider("right", true)}>
 
@@ -122,6 +133,21 @@ const Navbar = () => {
                             anchor="right"
                             onClose={toggleSlider("right", false)}>
                             {slidelist("right")}
+                            <div
+                                class="clean-block add-on social-icons"
+                                style={{height: "3rem",padding: "2rem"}}>
+                                <div class="icons" >
+                                    <a href="https://www.facebook.com/profile.php?id=100014325692435" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/mohamed-touhami-rhaima-17812a1b6" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a href="https://github.com/Rhaima96" target="_blank">
+                                        <i class="fa fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </MobileRightMenuSlider>
                     </Toolbar>
                 </AppBar>

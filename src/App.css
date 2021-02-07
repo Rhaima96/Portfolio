@@ -6,3 +6,9 @@ body {
 .logo {
     width: 9.25rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .an_h {
+        font-size: 3rem !important;
+    }
+}
